@@ -1,0 +1,98 @@
+version: '2'
+services:
+    bar-app:
+        image: bar
+        external_links:
+            - bar-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/bar
+            - JHIPSTER_SLEEP=10
+            - SPRING_CLOUD_CONFIG_URI=http://admin:undefined@registry:8761/config
+    bar-postgresql:
+        container_name: bar-postgresql
+        image: postgres:9.5.4
+        environment:
+            - POSTGRES_USER=bar
+            - POSTGRES_PASSWORD=
+    
+    foo-app:
+        image: foo
+        external_links:
+            - foo-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/foo
+            - JHIPSTER_SLEEP=10
+            - SPRING_CLOUD_CONFIG_URI=http://admin:undefined@registry:8761/config
+    foo-postgresql:
+        container_name: foo-postgresql
+        image: postgres:9.5.4
+        environment:
+            - POSTGRES_USER=foo
+            - POSTGRES_PASSWORD=
+    
+    gateway-app:
+        image: gateway
+        external_links:
+            - gateway-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/gateway
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=cassandra
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_CONFIG_URI=http://admin:undefined@registry:8761/config
+        ports:
+            - 8080:8080
+    gateway-postgresql:
+        container_name: gateway-postgresql
+        image: postgres:9.5.4
+        environment:
+            - POSTGRES_USER=gateway
+            - POSTGRES_PASSWORD=
+    
+    uaa-app:
+        image: uaa
+        external_links:
+            - uaa-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/uaa
+            - JHIPSTER_SLEEP=10
+            - SPRING_CLOUD_CONFIG_URI=http://admin:undefined@registry:8761/config
+    uaa-postgresql:
+        container_name: uaa-postgresql
+        image: postgres:9.5.4
+        environment:
+            - POSTGRES_USER=uaa
+            - POSTGRES_PASSWORD=
+    
+    consul:
+        extends:
+            file: consul.yml
+            service: consul
+    consul-config-loader:
+        extends:
+            file: consul.yml
+            service: consul-config-loader
+
+    jhipster-elasticsearch:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-elasticsearch
+    jhipster-logstash:
+        extends:
+          file: jhipster-console.yml
+          service: jhipster-logstash
+    jhipster-console:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-console

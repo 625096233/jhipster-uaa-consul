@@ -1,0 +1,14 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "bar",
+      "foo",
+      "gateway",
+      "uaa"
+    ],
+    "directoryPath": "../",
+    "useElk": true,
+    "serviceDiscoveryType": "consul",
+    "jwtSecretKey": "10ad7769f0e687c8c2cb82cb55f69ff168c2c57c"
+  }
+}
