@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "3.8.0-consul",
+    "jhipsterVersion": "3.8.0",
     "baseName": "foo",
     "packageName": "com.mycompany.myapp",
     "packageFolder": "com/mycompany/myapp",

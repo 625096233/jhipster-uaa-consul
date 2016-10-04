@@ -3,7 +3,6 @@ package com.mycompany.myapp.config;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.servlet.InstrumentedFilter;
 import com.codahale.metrics.servlets.MetricsServlet;
-import com.hazelcast.core.HazelcastInstance;
 import com.mycompany.myapp.web.filter.CachingHttpHeadersFilter;
 
 import org.slf4j.Logger;
@@ -41,10 +40,6 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
 
     @Autowired(required = false)
     private MetricRegistry metricRegistry;
-
-    // Hazelcast instance is injected to force its initialization before the Servlet filter uses it.
-    @Inject
-    private HazelcastInstance hazelcastInstance;
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {

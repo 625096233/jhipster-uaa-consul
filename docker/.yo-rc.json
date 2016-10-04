@@ -7,8 +7,8 @@
       "uaa"
     ],
     "directoryPath": "../",
-    "useElk": true,
+    "useElk": false,
     "serviceDiscoveryType": "consul",
-    "jwtSecretKey": "10ad7769f0e687c8c2cb82cb55f69ff168c2c57c"
+    "jwtSecretKey": "1dbbdb090923d1eb27b9bce10565cabbce13fd81"
   }
 }

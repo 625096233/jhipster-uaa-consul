@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "3.8.0-consul",
+    "jhipsterVersion": "3.8.0",
     "baseName": "gateway",
     "packageName": "com.mycompany.myapp",
     "packageFolder": "com/mycompany/myapp",
     "serverPort": "8080",
     "authenticationType": "uaa",
     "uaaBaseName": "uaa",
-    "hibernateCache": "hazelcast",
+    "hibernateCache": "no",
     "clusteredHttpSession": false,
     "websocket": false,
     "databaseType": "sql",

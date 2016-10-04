@@ -1,3 +1,7 @@
+
+consul:
+    token: to-change-in-production-client
+
 spring:
     application:
         name: uaa

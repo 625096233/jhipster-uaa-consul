@@ -141,9 +141,6 @@ dependencies {
         exclude(module: 'metrics-core')
         exclude(module: 'metrics-healthchecks')
     } 
-    compile "com.hazelcast:hazelcast:${hazelcast_version}"
-    compile "com.hazelcast:hazelcast-hibernate4:${hazelcast_version}"
-    compile "com.hazelcast:hazelcast-spring:${hazelcast_version}"
     compile "org.hibernate:hibernate-core:${hibernate_entitymanager_version}"
     compile("com.zaxxer:HikariCP") {
         exclude(module: 'tools')

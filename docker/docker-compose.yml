@@ -84,15 +84,3 @@ services:
             file: consul.yml
             service: consul-config-loader
 
-    jhipster-elasticsearch:
-        extends:
-            file: jhipster-console.yml
-            service: jhipster-elasticsearch
-    jhipster-logstash:
-        extends:
-          file: jhipster-console.yml
-          service: jhipster-logstash
-    jhipster-console:
-        extends:
-            file: jhipster-console.yml
-            service: jhipster-console
